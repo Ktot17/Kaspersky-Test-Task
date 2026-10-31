@@ -42,7 +42,7 @@ public sealed class ScanStateMachine(
                 ErrorMessage = error
             };
 
-            if (await scanRepository.TryUpdateAsync(current, updated, ct))
+            if (await scanRepository.TryUpdateAsync(updated, current, ct))
                 return true;
         }
     }

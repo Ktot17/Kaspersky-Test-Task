@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using BLComponent.Abstractions;
 
-namespace DBComponent;
+namespace DBComponent.Registries;
 
 public sealed class RunningScanRegistry : IRunningScanRegistry
 {

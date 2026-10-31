@@ -1,9 +1,9 @@
 ﻿using System.Threading.Channels;
-using BLComponent.Configuration;
 using BLComponent.Abstractions;
+using BLComponent.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace DBComponent;
+namespace DBComponent.Queues;
 
 public sealed class ScanQueue(IOptions<ScanningOptions> options) : IScanQueue
 {
