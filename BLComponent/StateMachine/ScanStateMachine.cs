@@ -1,5 +1,5 @@
 ﻿using BLComponent.Enums;
-using BLComponent.InputPorts;
+using BLComponent.Abstractions;
 using BLComponent.Models;
 
 namespace BLComponent.StateMachine;

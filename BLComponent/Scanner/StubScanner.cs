@@ -1,4 +1,4 @@
-﻿using BLComponent.InputPorts;
+﻿using BLComponent.Abstractions;
 using BLComponent.Models;
 using Microsoft.Extensions.Logging;
 

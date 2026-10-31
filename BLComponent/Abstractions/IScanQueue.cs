@@ -1,4 +1,4 @@
-﻿namespace BLComponent.InputPorts;
+﻿namespace BLComponent.Abstractions;
 
 public interface IScanQueue
 {

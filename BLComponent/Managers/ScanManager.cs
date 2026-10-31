@@ -1,8 +1,7 @@
 ﻿using BLComponent.Enums;
 using BLComponent.Exceptions;
-using BLComponent.InputPorts;
+using BLComponent.Abstractions;
 using BLComponent.Models;
-using BLComponent.OutputPorts;
 using Microsoft.Extensions.Logging;
 
 namespace BLComponent.Managers;

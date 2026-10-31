@@ -1,6 +1,6 @@
 ﻿using System.Threading.Channels;
 using BLComponent.Configuration;
-using BLComponent.InputPorts;
+using BLComponent.Abstractions;
 using Microsoft.Extensions.Options;
 
 namespace DBComponent;

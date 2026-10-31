@@ -1,6 +1,6 @@
 ﻿using BLComponent.Models;
 
-namespace BLComponent.OutputPorts;
+namespace BLComponent.Abstractions;
 
 public interface IScanManager
 {

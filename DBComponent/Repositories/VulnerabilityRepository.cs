@@ -1,5 +1,5 @@
 ﻿using System.Collections.Concurrent;
-using BLComponent.InputPorts;
+using BLComponent.Abstractions;
 using BLComponent.Models;
 
 namespace DBComponent.Repositories;
