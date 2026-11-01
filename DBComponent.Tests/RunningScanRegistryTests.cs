@@ -21,19 +21,22 @@ public class RunningScanRegistryTests
         
         Assert.Single(_scans);
         Assert.Contains(id, _scans.Keys);
-        Assert.Equivalent(cts, _scans[id]);
+        Assert.Same(cts, _scans[id]);
     }
 
     [Fact]
     public void Register_DuplicateId_ThrowsInvalidOperationException()
     {
-        var cts = new CancellationTokenSource();
+        var existing = new CancellationTokenSource();
+        var duplicate = new CancellationTokenSource();
         var id = Guid.NewGuid();
-        _scans[id] = cts;
-        
-        Assert.Throws<InvalidOperationException>(() => _registry.Register(id, cts));
+        _scans[id] = existing;
+
+        Assert.Throws<InvalidOperationException>(() => _registry.Register(id, duplicate));
+
         Assert.Single(_scans);
-        Assert.Equivalent(cts, _scans[id]);
+        Assert.Same(existing, _scans[id]);
+        Assert.Throws<ObjectDisposedException>(() => _ = duplicate.Token);
     }
 
     [Fact]
