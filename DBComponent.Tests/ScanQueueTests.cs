@@ -79,4 +79,23 @@ public class ScanQueueTests
 
         Assert.Empty(received);
     }
+    
+    [Fact]
+    public async Task ReadAllAsync_Cancelled_ThrowsOperationCanceledException()
+    {
+        using var cts = new CancellationTokenSource();
+        await cts.CancelAsync();
+        var enumerator = _scans.ReadAllAsync(cts.Token).GetAsyncEnumerator();
+
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(
+            async () => await enumerator.MoveNextAsync());
+    }
+
+    [Fact]
+    public void ReadAllAsync_WhenEmpty_DoesNotComplete()
+    {
+        var enumerator = _scans.ReadAllAsync(CancellationToken.None).GetAsyncEnumerator();
+        var moveNext = enumerator.MoveNextAsync().AsTask();
+        Assert.False(moveNext.IsCompleted);
+    }
 }
