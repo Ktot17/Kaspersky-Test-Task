@@ -5,7 +5,14 @@ namespace DBComponent.Registries;
 
 public sealed class RunningScanRegistry : IRunningScanRegistry
 {
-    private readonly ConcurrentDictionary<Guid, CancellationTokenSource> _scans = new();
+    private readonly ConcurrentDictionary<Guid, CancellationTokenSource> _scans;
+
+    internal RunningScanRegistry(
+        ConcurrentDictionary<Guid, CancellationTokenSource> scans)
+        => _scans = scans;
+    
+    public RunningScanRegistry() 
+        : this(new ConcurrentDictionary<Guid, CancellationTokenSource>()) {}
 
     public void Register(Guid scanId, CancellationTokenSource cts)
     {

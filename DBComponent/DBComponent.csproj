@@ -9,5 +9,9 @@
     <ItemGroup>
       <ProjectReference Include="..\BLComponent\BLComponent.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="DBComponent.Tests" />
+    </ItemGroup>
 
 </Project>

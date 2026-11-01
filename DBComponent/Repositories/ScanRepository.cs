@@ -6,7 +6,14 @@ namespace DBComponent.Repositories;
 
 public sealed class ScanRepository : IScanRepository
 {
-    private readonly ConcurrentDictionary<Guid, Scan> _scans = new();
+    private readonly ConcurrentDictionary<Guid, Scan> _scans;
+
+    internal ScanRepository(
+        ConcurrentDictionary<Guid, Scan> scans) 
+        => _scans = scans;
+    
+    public ScanRepository() 
+        : this(new ConcurrentDictionary<Guid, Scan>()) {}
     
     public Task AddAsync(
         Scan scan,
